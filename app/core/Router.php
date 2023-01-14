@@ -18,7 +18,7 @@ class Router
     { 
         $route = '#^' . $route . '$#';
         $this -> routes[$route] = $params;
-        debug($this->routes); 
+        //debug($this->routes); 
     }
 
     public function match()
@@ -43,10 +43,12 @@ class Router
     public function run() 
     {
         if ($this -> match()) {
-            $controller_name = "\app\controllers\\" . ucfirst($this->params['controller']) . 'Controller';
+            // debug($this->params);
+
+            $controller_name = "\app\controllers\\" . ucfirst($this->params['controller'] . 'Controller');
             //MainController.php
             if(class_exists($controller_name)) {
-                $controller = new $controller_name();
+                $controller = new $controller_name($this->params);
                 $action_name = $this->params['action'] . 'Action';
                 if(method_exists($controller,$action_name)) {
                     $controller->$action_name();

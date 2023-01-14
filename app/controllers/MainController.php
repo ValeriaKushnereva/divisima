@@ -1,13 +1,13 @@
 <?php
-namespace app\controllers; 
 
-    Class MainController {
-        public function __construct()
-        {
-            echo '__construct';
-        }
-        public function indexAction () 
-        {
-            
-        }
+namespace app\controllers; 
+use app\core\Controller;
+
+class MainController extends Controller {
+
+    public function indexAction() 
+    {
+        
+        // echo 'indexAction'; 
     }
+}
