@@ -4,6 +4,6 @@ abstract class Model
 {
     public function __construct()
     {
-        echo ' MODEL';
+        //echo ' MODEL';
     }
 }
